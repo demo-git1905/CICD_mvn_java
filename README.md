@@ -50,4 +50,18 @@ git add .
 git status   
 git commit -m "message"   
 
+## Jenkins setup and pipeline execution
+
+download jenkins: https://www.jenkins.io/download/#downloading-jenkins 2.481  
+https://www.jenkins.io/doc/book/installing/windows/    
+install in C:\Program Files\Jenkins\  
+am running it as local <- no admin username n pwd needed  
+install java 17 or 21 as it is n=only supported by jenkins  
+https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html  
+choose .exe  
+install finish
+
+
+
+
 
