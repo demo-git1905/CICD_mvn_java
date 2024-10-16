@@ -29,7 +29,8 @@ Install maven :
 Add src code files in src\main\java\hello folder
 Add pom.xml 
 Execute "mvn compile"  to get target folder
-"mvn package" to get war file inside target folder
+"mvn package" to get war file inside target folder . Phases like validate, compile, test, and package are executed.
+"mnv install" to package and install in local m2 repo. In addition to performing everything mvn package does, mvn install also installs the packaged artifact (e.g., JAR or WAR) into the local Maven repository (usually located at ~/.m2/repository on your system).
 
 Why is the Reduced pom.xml Generated?
 When creating a shaded JAR, Maven combines the project's code with its dependencies into one executable JAR file, which can be distributed without worrying about external dependency management. However, the original pom.xml still lists all the dependencies that were packaged into the JAR. Including these dependencies in future projects would cause them to be added again, which might result in duplicate classes or conflicts.
