@@ -60,8 +60,11 @@ install java 17 or 21 as it is n=only supported by jenkins
 https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html  
 choose .exe  
 install finish
+find password in C:\Program Files\Jenkins\jenkins.err and paste in jenkins login page in web localhost:8080
 
-
+install all plugins  
+give jenkins username and pwd with email  
+jenkins dashboard appears  
 
 
 
