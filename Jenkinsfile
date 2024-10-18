@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Install the JDK and Maven tools
-        jdk 'JDK 11'  // Assuming you have a JDK tool named 'JDK 11' installed in Jenkins
+        jdk 'JDK 8'  // Assuming you have a JDK tool named 'JDK 11' installed in Jenkins
         maven 'Maven 3.9.9'  // Assuming you have Maven installed in Jenkins
     }
 
