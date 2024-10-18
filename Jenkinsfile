@@ -32,7 +32,8 @@ pipeline {
     post {
         always {
             // Archive artifacts and test reports
-            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            //archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+            echo 'always post condition'
         }
         success {
             // Send notification on successful build
