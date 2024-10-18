@@ -4,12 +4,12 @@ pipeline {
     tools {
         // Install the JDK and Maven tools
         jdk 'JDK 11'  // Assuming you have a JDK tool named 'JDK 11' installed in Jenkins
-        maven 'Maven 3.8.1'  // Assuming you have Maven installed in Jenkins
+        maven 'Maven 3.9.9'  // Assuming you have Maven installed in Jenkins
     }
 
     environment {
         // Define environment variables
-        JAVA_HOME = tool name: 'JDK 11'
+        JAVA_HOME = tool name: 'JDK 8'
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
     }
 
