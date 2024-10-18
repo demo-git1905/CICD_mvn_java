@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the JDK and Maven tools
+        jdk 'JDK 11'  // Assuming you have a JDK tool named 'JDK 11' installed in Jenkins
+        maven 'Maven 3.8.1'  // Assuming you have Maven installed in Jenkins
+    }
+
+    environment {
+        // Define environment variables
+        JAVA_HOME = tool name: 'JDK 11'
+        PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from GitHub
+                git 'https://github.com/DebaratiBiswas/CICD_mvn_java.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Execute Maven build command
+                sh 'mvn clean install'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive artifacts and test reports
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+        }
+        success {
+            // Send notification on successful build
+            echo 'Build completed successfully'
+        }
+        failure {
+            // Send notification on failed build
+            echo 'Build failed'
+        }
+    }
+}
