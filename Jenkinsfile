@@ -14,6 +14,11 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()  // This deletes the workspace before the build starts
+            }
+        }
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub
