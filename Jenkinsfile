@@ -22,14 +22,15 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git branch: 'main', url: 'https://github.com/DebaratiBiswas/CICD_mvn_java.git'
+                git branch: 'main', url: 'https://github.com/DebaratiBiswas/CICD_mvn_java.git', credentialsId: 'github-pat'
             }
         }
 
         stage('Build') {
             steps {
                 // Execute Maven build command
-                sh 'mvn clean install'
+                //sh 'mvn clean install'
+                bat 'mvn package'
             }
         }
     }
