@@ -22,7 +22,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git 'https://github.com/DebaratiBiswas/CICD_mvn_java.git'
+                git branch: 'main', url: 'https://github.com/DebaratiBiswas/CICD_mvn_java.git'
             }
         }
 
