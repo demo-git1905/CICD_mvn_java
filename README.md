@@ -60,11 +60,22 @@ install java 17 or 21 as it is n=only supported by jenkins
 https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html  
 choose .exe  
 install finish
-find password in C:\Program Files\Jenkins\jenkins.err and paste in jenkins login page in web localhost:8080
+find password in C:\Program Files\Jenkins\jenkins.err and paste in jenkins login page in web localhost:8080  
 
 install all plugins  
 give jenkins username and pwd with email  
 jenkins dashboard appears  
+
+##Setup Jenkins  
+add jenkins file with jdk and maven version as named in manage jenkins <-- tools ; with its local javahome and maven home paths  
+in plugins check for git and pipeline  
+Create a New Pipeline Job:
+
+In Jenkins, click on New Item.  
+Choose Pipeline and give it a name (e.g., "Maven Build"). here - githubrepo_pipeline   
+Under the Pipeline section, select Pipeline script from SCM.  
+Choose Git and enter your GitHub repository URL.  
+In the Script Path, set the path to the Jenkinsfile (if it's in the root directory, leave it as Jenkinsfile)  
 
 
 
