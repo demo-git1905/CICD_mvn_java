@@ -76,6 +76,32 @@ Choose Pipeline and give it a name (e.g., "Maven Build"). here - githubrepo_pipe
 Under the Pipeline section, select Pipeline script from SCM.  
 Choose Git and enter your GitHub repository URL.  
 In the Script Path, set the path to the Jenkinsfile (if it's in the root directory, leave it as Jenkinsfile)  
+in Manage Jenkins -> tools  
+Add JDK - 
+JDK  
+Name    
+JDK 8  
+JAVA_HOME  
+C:\Program Files\Java\jdk1.8.0_202  
+Add Maven  
+Maven  
+Name  
+Maven 3.9.9  
+MAVEN_HOME  
+C:\Program Files\Apache\Maven\apache-maven-3.9.9  
 
+Jenkis configure:  
+Pipeline  
+Definition  
+Pipeline script from SCM
+SCM    
+Git  
+Repositories  
+Repository URL  
+https://github.com/DebaratiBiswas/CICD_mvn_java.git  
+Branch Specifier (blank for 'any')    
+main   
+Script Path    
+Jenkinsfile  
 
 
