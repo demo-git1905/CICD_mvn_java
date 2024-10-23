@@ -104,4 +104,21 @@ main
 Script Path    
 Jenkinsfile  
 
+##ERROR 1 ##
+
+C:\ProgramData\Jenkins\.jenkins\workspace\CICD_mvn_java_pipeline>C:\Program Files\Apache\Maven\apache-maven-3.9.9\bin\mvn.bat package 
+'C:\Program' is not recognized as an internal or external command,
+operable program or batch file.   
+reason: The issue you're facing occurs because the path to Maven contains spaces (i.e., C:\Program Files\). Windows treats spaces in paths as separators unless the entire path is enclosed in quotes.  
+solution: Install the plugin:
+
+Go to Manage Jenkins > Manage Plugins.
+In the Available tab, search for "Pipeline Maven Integration Plugin".  
+stage('Build') {
+    steps {
+        withMaven(maven: 'Maven3') {
+            bat 'mvn package'
+        }  
+###
+
 
