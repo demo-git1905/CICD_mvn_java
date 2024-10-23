@@ -119,6 +119,86 @@ stage('Build') {
         withMaven(maven: 'Maven3') {
             bat 'mvn package'
         }  
-###
+### Add Webhook for build trigger on github push
+
+Step 1: Install the GitHub Plugin in Jenkins    
+Go to Manage Jenkins > Manage Plugins.  
+In the Available tab, search for the GitHub Plugin and install it.  
+Enable GitHub Webhooks Trigger  
+In the Build Triggers section jenkins job config, check the GitHub hook trigger for GITScm polling option.  
+
+Step 3: Set Up a GitHub Webhook  
+Go to your GitHub repository:  
+Open your repository on GitHub.  
+Navigate to Settings > Webhooks.  
+Click Add webhook.  
+Set up the webhook:  
+Payload URL: This should be your Jenkins server's URL followed by /github-webhook/ (for example: http://<your-jenkins-url>/github-webhook/).  
+Content type: Set this to application/json.  
+Which events would you like to trigger this webhook?: Choose Just the push event.  
+Click Add webhook.  
+
+## Error 2 ##
+when given local host url in github webhook settings  
+Payload URL *  
+http://localhost:8080/github-webhook/  
+error: is not supported because it isn't reachable over the public Internet (localhost)  
+reason: Jenkins instance is running on localhost, which is not publicly accessible from the internet. GitHub's webhooks require a publicly accessible URL to send notifications when a repository event occurs (e.g., a push).  
+solution:   
+
+Step 1: Sign Up for an ngrok Account    
+Go to ngrok's website: https://ngrok.com/download  
+
+Visit the ngrok signup page.  
+Create an Account:  
+
+Sign up for a free account using your email, Google, or GitHub credentials.  
+Verify Your Account:  
+
+After signing up, check your email and verify your account using the link provided by ngrok.    
+Step 2: Get Your ngrok Authtoken  
+Log in to ngrok:  
+
+After verifying your account, log in to the ngrok dashboard.
+Find Your Authtoken:
+
+In the dashboard, go to the Getting Started section.  
+You will find your unique Authtoken under the "Connect your account" step.  
+Step 3: Set Up ngrok with Your Authtoken  
+Copy the Authtoken:  
+https://dashboard.ngrok.com/get-started/your-authtoken  
+Copy the authtoken from the ngrok dashboard.  
+Run the ngrok Authtoken Command:  
+
+Open Command Prompt or PowerShell.  
+Run the following command to authenticate your ngrok installation:  
+bash  
+Copy code  
+ngrok config add-authtoken <your-authtoken>  
+Replace <your-authtoken> with the token you copied from the ngrok dashboard.  
+Step 4: Run ngrok Again   
+Expose Jenkins on Port 8080:  
+
+After authenticating ngrok, run the command again to expose Jenkins:  
+bash  
+Copy code  
+ngrok http 8080   
+Get the Public URL:  
+
+ngrok will now provide a public URL (e.g., http://abcd1234.ngrok.io), which you can use to access Jenkins from the internet.  
+Step 5: Update the GitHub Webhook with the New URL  
+Go to GitHub Webhook Settings:  
+
+Navigate to your repository’s Settings > Webhooks.  
+Update the Payload URL:  
+
+Change the Payload URL to the new public URL provided by ngrok (e.g., http://abcd1234.ngrok.io/github-webhook/).  
+Save the changes.
+
+Now, your ngrok setup should be complete and functioning with the authenticated account. Let me know if you encounter any further issues!  
+
+output:  
+ngrok                                                                                                    (Ctrl+C to quit)                                                                                                                         Found a bug? Let us know: https://github.com/ngrok/ngrok                                                                                                                                                                                          Session Status                online                                                                                     Account                       Debarati (Plan: Free)                                                                      Version                       3.18.0                                                                                     Region                        India (in)                                                                                 Latency                       29ms                                                                                       Web Interface                 http://127.0.0.1:4040                                                                      Forwarding                    https://51e2-122-172-83-194.ngrok-free.app -> http://localhost:8080                                                                                                                                                 Connections                   ttl     opn     rt1     rt5     p50     p90                                                                              0       0       0.00    0.00    0.00    0.00
+
 
 
