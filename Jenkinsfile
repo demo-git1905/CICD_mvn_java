@@ -30,7 +30,7 @@ pipeline {
             steps {
                 // Execute Maven build command
                 //sh 'mvn clean install'
-                bat 'C:\\Program Files\\Apache\\Maven\\apache-maven-3.9.9\\bin\\mvn.bat package'
+                bat '"C:\\Program Files\\Apache\\Maven\\apache-maven-3.9.9\\bin\\mvn.bat" package'
             }
         }
     }
