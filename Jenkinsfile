@@ -4,7 +4,7 @@ pipeline {
     tools {
         // Install the JDK and Maven tools
         jdk 'JDK 8'  // Assuming you have a JDK tool named 'JDK 11' installed in Jenkins
-        maven 'Maven 3.9.9'  // Assuming you have Maven installed in Jenkins
+        maven 'Maven3.9.9'  // Assuming you have Maven installed in Jenkins
     }
 
     environment {
@@ -30,7 +30,9 @@ pipeline {
             steps {
                 // Execute Maven build command
                 //sh 'mvn clean install'
-                bat '"C:\\Program Files\\Apache\\Maven\\apache-maven-3.9.9\\bin\\mvn.bat" package'
+                withMaven(maven: 'Maven3.9.9') {
+                bat 'mvn package' 
+                }
             }
         }
     }
